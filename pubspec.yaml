@@ -1,0 +1,49 @@
+name: jeeliz_dart
+description: >-
+  Pure Dart/Flutter port of the Jeeliz FaceFilter demos. No JavaScript, no
+  WebView, no three.js — the scene graph, the pose math and the renderer are
+  all Dart. First filter ported: glassesVTO.
+version: 0.1.0
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.32.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Used by the runnable demo in lib/main.dart and lib/demo/ ONLY.
+  #
+  # The library itself (lib/src/**) has no camera or ML dependency and must
+  # keep it that way: it takes landmarks in and hands a ui.Image back, so it
+  # can be driven by MediaPipe, ARKit, ARCore or recorded data. These two are
+  # here so this directory can be run directly on a device — `flutter create`
+  # has already made it an app project.
+  camera: ^0.11.0
+  mediapipe_face_mesh: ^2.7.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  assets:
+    - assets/glassesVTO/
+    - assets/tiger/
+    - assets/casaDePapel/
+    - assets/rupyHelmet/
+    - assets/dogFace/
+    - assets/cloud/
+    - assets/liberty/
+    - assets/comedyGlasses/
+    - assets/artPainting/
+    - assets/celFace/
+    - assets/butterflies/
+    - assets/matrix/
+    - assets/luffysHat/
+    - assets/gltfHelmet/
+    - assets/fireworks/
+    - assets/halloweenSpider/
