@@ -1,0 +1,17 @@
+workflows:
+  unsigned-ios-build:
+    name: Unsigned iOS Build
+    instance_type: mac_mini_m1
+    environment:
+      flutter: stable
+    scripts:
+      - name: Get Flutter dependencies
+        script: flutter pub get
+      - name: Build Unsigned IPA
+        script: |
+          flutter build ios --release --no-codesign
+          mkdir -p Payload
+          cp -R build/ios/iphoneos/Runner.app Payload/
+          zip -q -r app.ipa Payload
+    artifacts:
+      - app.ipa
